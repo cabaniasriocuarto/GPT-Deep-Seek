@@ -163,3 +163,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// Script para el menú hamburguesa
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  const nav = document.querySelector("nav");
+
+  if (toggle && navLinks) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+  }
+});
