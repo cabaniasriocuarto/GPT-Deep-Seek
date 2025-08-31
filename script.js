@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.classList.toggle('fa-xmark');
     });
 
-    // Cerrar menú cuando se hace click en un enlace
+    // 🔥 Cerrar menú solo cuando se hace click en un enlace
     const navLinksItems = document.querySelectorAll('.nav-links a');
     navLinksItems.forEach(link => {
       link.addEventListener('click', () => {
@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     currentIndex = index;
   }
 
-  // Botones de navegación
   if (prevButton) {
     prevButton.addEventListener('click', () => showSlide(currentIndex - 1));
   }
