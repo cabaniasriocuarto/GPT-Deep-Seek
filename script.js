@@ -28,17 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-xmark');
     });
-  }
-  // Cerrar menú cuando se hace click en un enlace
-  const navLinksItems = document.querySelectorAll('.nav-links a');
-  navLinksItems.forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      const icon = menuIcon.querySelector('i');
-      icon.classList.add('fa-bars');
-      icon.classList.remove('fa-xmark');
+
+    // Cerrar menú cuando se hace click en un enlace
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+    navLinksItems.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        const icon = menuIcon.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-xmark');
+      });
     });
-  });
+  }
 
   // --- FUNCIÓN SLIDER ---
   function showSlide(index) {
