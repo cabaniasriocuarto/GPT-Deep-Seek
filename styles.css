@@ -59,6 +59,32 @@ header nav .logo img {
   height: 40px;
   width: auto;
 }
+
+/* Iconos sociales en header para móviles */
+.social-header-mobile {
+  display: none;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-header-mobile a {
+  color: #f5f5f5;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease;
+}
+
+.social-header-mobile a:hover {
+  opacity: 0.8;
+}
+
+.social-header-mobile a.facebook { color: #1877f2; }
+.social-header-mobile a.instagram { 
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 header nav .nav-links {
   list-style: none;
   display: flex;
@@ -562,18 +588,15 @@ header nav .nav-links li.social a.instagram {
   font-size: 1rem;
 }
 
-/* Responsive adjustments */
-@media (min-width: 769px) {
-  .tarifas-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: auto;
-  }
-  .contacto-container {
-    flex-direction: row;
-  }
+/* ====== MENÚ HAMBURGUESA ====== */
+header nav .icon {
+  display: none;
+  font-size: 1.8rem;
+  color: #f5f5f5;
+  cursor: pointer;
 }
 
+/* Estilos responsive */
 @media (max-width: 768px) {
   html, body {
     padding-top: 70px;
@@ -581,6 +604,21 @@ header nav .nav-links li.social a.instagram {
   
   header nav {
     padding: 0.8rem 1rem;
+  }
+  
+  /* Ocultar texto del logo en móviles */
+  header nav .logo span {
+    display: none;
+  }
+  
+  /* Mostrar iconos sociales en header móvil */
+  .social-header-mobile {
+    display: flex;
+  }
+  
+  /* Ocultar iconos sociales en el menú desplegable */
+  header nav .nav-links li.social {
+    display: none;
   }
   
   .nav-toggle {
@@ -600,10 +638,12 @@ header nav .nav-links li.social a.instagram {
     transition: transform 0.3s ease;
     z-index: 998;
     border-top: 1px solid #222;
+    display: none;
   }
   
-  header nav .nav-links.active {
+  header nav.open .nav-links {
     transform: translateY(0);
+    display: flex;
   }
   
   header nav .nav-links li {
@@ -633,37 +673,15 @@ header nav .nav-links li.social a.instagram {
     gap: 0.8rem;
   }
 }
-/* ====== MENÚ HAMBURGUESA ====== */
-header nav .icon {
-  display: none;
-  font-size: 1.8rem;
-  color: #f5f5f5;
-  cursor: pointer;
+
+/* Clase para ocultar elementos en móviles */
+.desktop-only {
+  display: block;
 }
 
-/* Estilos responsive */
 @media (max-width: 768px) {
-  header nav .nav-links {
+  .desktop-only {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    right: 0;
-    width: 100%;
-    background-color: #0f0f0f;
-    border-top: 1px solid #222;
-    padding: 1rem 0;
-  }
-  header nav .icon {
-    display: block;
-  }
-  header nav.open .nav-links {
-    display: flex;
-    animation: slideDown 0.3s ease;
-  }
-  header nav.open .nav-links li {
-    margin: 0.7rem 0;
-    text-align: center;
   }
 }
 
@@ -673,3 +691,14 @@ header nav .icon {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Responsive adjustments */
+@media (min-width: 769px) {
+  .tarifas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: auto;
+  }
+  .contacto-container {
+    flex-direction: row;
+  }
+}
