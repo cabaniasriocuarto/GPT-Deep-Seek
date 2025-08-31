@@ -14,19 +14,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.querySelector('.lightbox .close');
+  const navToggle = document.querySelector('.nav-toggle');
 
   let currentIndex = 0;
   let images; // se actualizará al cargar
 
-  // --- MENÚ HAMBURGUESA ---
+  // --- MENÚ HAMBURGUESA MEJORADO ---
   const menuIcon = document.getElementById('menu-icon');
   const nav = document.querySelector('header nav');
+  
   if (menuIcon && nav) {
-    menuIcon.addEventListener('click', () => {
+    menuIcon.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevenir que el clic se propague
       nav.classList.toggle('open');
       const icon = menuIcon.querySelector('i');
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-xmark');
+    });
+  }
+
+  // Cerrar menú al hacer clic fuera de él
+  document.addEventListener('click', (e) => {
+    if (nav && nav.classList.contains('open') && !e.target.closest('header nav')) {
+      nav.classList.remove('open');
+      if (menuIcon) {
+        const icon = menuIcon.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-xmark');
+      }
+    }
+  });
+
+  // Prevenir que el menú se cierre al hacer clic dentro de él
+  const navLinks = document.querySelector('header nav .nav-links');
+  if (navLinks) {
+    navLinks.addEventListener('click', (e) => {
+      e.stopPropagation();
     });
   }
 
