@@ -641,31 +641,25 @@ header nav .icon {
   cursor: pointer;
 }
 
-/* Estilos responsive */
 @media (max-width: 768px) {
   header nav .nav-links {
     display: none;
     flex-direction: column;
-    position: absolute;
+    position: fixed;      /* ← CAMBIAMOS absolute por fixed */
     top: 80px;
     right: 0;
     width: 100%;
     background-color: #0f0f0f;
     border-top: 1px solid #222;
     padding: 1rem 0;
-  }
-  header nav .icon {
-    display: block;
+    z-index: 1000;        /* ← añadimos para que quede arriba */
   }
   header nav.open .nav-links {
     display: flex;
-    animation: slideDown 0.3s ease;
-  }
-  header nav.open .nav-links li {
-    margin: 0.7rem 0;
-    text-align: center;
+    animation: slideDown 0.3s ease forwards;
   }
 }
+
 
 /* Animación al desplegar */
 @keyframes slideDown {
